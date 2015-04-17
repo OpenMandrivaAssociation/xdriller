@@ -1,0 +1,146 @@
+diff -ur xdriller-0.8.0/src/BackgroundSceneManager.cpp xdriller-0.8.0_fix/src/BackgroundSceneManager.cpp
+--- xdriller-0.8.0/src/BackgroundSceneManager.cpp	2010-02-17 17:14:34.000000000 +0100
++++ xdriller-0.8.0_fix/src/BackgroundSceneManager.cpp	2012-11-26 12:04:45.993654728 +0100
+@@ -2,14 +2,14 @@
+ 
+ using namespace Ogre;
+ 
+-template<> BackgroundSceneManager* Ogre::Singleton<BackgroundSceneManager>::ms_Singleton = 0;
++template<> BackgroundSceneManager* Ogre::Singleton<BackgroundSceneManager>::msSingleton = 0;
+ BackgroundSceneManager* BackgroundSceneManager::getSingletonPtr(void)
+ {
+-    return ms_Singleton;
++    return msSingleton;
+ }
+ BackgroundSceneManager& BackgroundSceneManager::getSingleton(void)
+ {
+-    assert( ms_Singleton );  return ( *ms_Singleton );
++    assert( msSingleton );  return ( *msSingleton );
+ }
+ 
+ BackgroundSceneManager::BackgroundSceneManager()
+diff -ur xdriller-0.8.0/src/ConfigManager.cpp xdriller-0.8.0_fix/src/ConfigManager.cpp
+--- xdriller-0.8.0/src/ConfigManager.cpp	2010-02-17 17:14:35.000000000 +0100
++++ xdriller-0.8.0_fix/src/ConfigManager.cpp	2012-11-26 12:06:19.157944289 +0100
+@@ -5,14 +5,14 @@
+ 
+ using namespace Ogre;
+ 
+-template<> ConfigManager* Ogre::Singleton<ConfigManager>::ms_Singleton = 0;
++template<> ConfigManager* Ogre::Singleton<ConfigManager>::msSingleton = 0;
+ ConfigManager* ConfigManager::getSingletonPtr(void)
+ {
+-    return ms_Singleton;
++    return msSingleton;
+ }
+ ConfigManager& ConfigManager::getSingleton(void)
+ {
+-    assert( ms_Singleton );  return ( *ms_Singleton );
++    assert( msSingleton );  return ( *msSingleton );
+ }
+ 
+ ConfigManager::ConfigManager(Ogre::String filename)
+diff -ur xdriller-0.8.0/src/Fader.cpp xdriller-0.8.0_fix/src/Fader.cpp
+--- xdriller-0.8.0/src/Fader.cpp	2010-02-17 17:14:35.000000000 +0100
++++ xdriller-0.8.0_fix/src/Fader.cpp	2012-11-26 12:07:21.285133727 +0100
+@@ -2,14 +2,14 @@
+ 
+ using namespace Ogre;
+ 
+-template<> Fader* Ogre::Singleton<Fader>::ms_Singleton = 0;
++template<> Fader* Ogre::Singleton<Fader>::msSingleton = 0;
+ Fader* Fader::getSingletonPtr(void)
+ {
+-    return ms_Singleton;
++    return msSingleton;
+ }
+ Fader& Fader::getSingleton(void)
+ {
+-    assert( ms_Singleton );  return ( *ms_Singleton );
++    assert( msSingleton );  return ( *msSingleton );
+ }
+ 
+ 
+diff -ur xdriller-0.8.0/src/HighScoreManager.cpp xdriller-0.8.0_fix/src/HighScoreManager.cpp
+--- xdriller-0.8.0/src/HighScoreManager.cpp	2010-11-17 09:11:52.000000000 +0100
++++ xdriller-0.8.0_fix/src/HighScoreManager.cpp	2012-11-26 12:08:45.498674995 +0100
+@@ -11,14 +11,14 @@
+ using namespace Ogre;
+ 
+ 
+-template<> HighScoreManager* Ogre::Singleton<HighScoreManager>::ms_Singleton = 0;
++template<> HighScoreManager* Ogre::Singleton<HighScoreManager>::msSingleton = 0;
+ HighScoreManager* HighScoreManager::getSingletonPtr(void)
+ {
+-    return ms_Singleton;
++    return msSingleton;
+ }
+ HighScoreManager& HighScoreManager::getSingleton(void)
+ {
+-    assert( ms_Singleton );  return ( *ms_Singleton );
++    assert( msSingleton );  return ( *msSingleton );
+ }
+ 
+ 
+diff -ur xdriller-0.8.0/src/LevelLoader.cpp xdriller-0.8.0_fix/src/LevelLoader.cpp
+--- xdriller-0.8.0/src/LevelLoader.cpp	2010-11-17 10:01:36.000000000 +0100
++++ xdriller-0.8.0_fix/src/LevelLoader.cpp	2012-11-26 12:08:06.019828218 +0100
+@@ -9,14 +9,14 @@
+ 
+ using namespace Ogre;
+ 
+-template<> LevelLoader* Ogre::Singleton<LevelLoader>::ms_Singleton = 0;
++template<> LevelLoader* Ogre::Singleton<LevelLoader>::msSingleton = 0;
+ LevelLoader* LevelLoader::getSingletonPtr(void)
+ {
+-    return ms_Singleton;
++    return msSingleton;
+ }
+ LevelLoader& LevelLoader::getSingleton(void)
+ {
+-    assert( ms_Singleton );  return ( *ms_Singleton );
++    assert( msSingleton );  return ( *msSingleton );
+ }
+ 
+ LevelLoader::LevelLoader()
+diff -ur xdriller-0.8.0/src/RumbleManager.cpp xdriller-0.8.0_fix/src/RumbleManager.cpp
+--- xdriller-0.8.0/src/RumbleManager.cpp	2010-02-17 17:14:35.000000000 +0100
++++ xdriller-0.8.0_fix/src/RumbleManager.cpp	2012-11-26 12:09:48.688827181 +0100
+@@ -159,13 +159,13 @@
+ 
+ #endif // OGRE_PLATFORM == OGRE_PLATFORM_LINUX
+ 
+-template<> RumbleManager* Ogre::Singleton<RumbleManager>::ms_Singleton = 0;
++template<> RumbleManager* Ogre::Singleton<RumbleManager>::msSingleton = 0;
+ RumbleManager* RumbleManager::getSingletonPtr(void)
+ {
+-    return ms_Singleton;
++    return msSingleton;
+ }
+ RumbleManager& RumbleManager::getSingleton(void)
+ {
+-    assert( ms_Singleton );  return ( *ms_Singleton );
++    assert( msSingleton );  return ( *msSingleton );
+ }
+ 
+diff -ur xdriller-0.8.0/src/SoundManager.cpp xdriller-0.8.0_fix/src/SoundManager.cpp
+--- xdriller-0.8.0/src/SoundManager.cpp	2010-02-17 17:14:35.000000000 +0100
++++ xdriller-0.8.0_fix/src/SoundManager.cpp	2012-11-26 12:10:08.312252864 +0100
+@@ -3,14 +3,14 @@
+ #include "RumbleManager.h"
+ 
+ 
+-template<> SoundManager* Ogre::Singleton<SoundManager>::ms_Singleton = 0;
++template<> SoundManager* Ogre::Singleton<SoundManager>::msSingleton = 0;
+ SoundManager* SoundManager::getSingletonPtr(void)
+ {
+-    return ms_Singleton;
++    return msSingleton;
+ }
+ SoundManager& SoundManager::getSingleton(void)
+ {
+-    assert( ms_Singleton );  return ( *ms_Singleton );
++    assert( msSingleton );  return ( *msSingleton );
+ }
+ 
+ SoundManager::SoundManager()

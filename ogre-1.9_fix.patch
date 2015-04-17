@@ -1,0 +1,118 @@
+Index: b/Makefile
+===================================================================
+--- a/Makefile
++++ b/Makefile
+@@ -4,13 +4,13 @@ RESET_COLOR="\033[0m"
+ SET_GREEN="\033[32;01m"
+ SET_YELLOW="\033[33m"
+ SET_RED="\033[31m"
+ 
+ CC=g++
+-LIBS = OGRE OIS sdl
++LIBS = OGRE OGRE-Overlay OIS sdl
+ CFLAGS=-c -Wall $(shell pkg-config --cflags $(LIBS)) -I include
+-LDFLAGS= $(shell pkg-config --libs $(LIBS)) -lSDL_mixer -ltinyxml
++LDFLAGS= $(shell pkg-config --libs $(LIBS)) -lSDL_mixer -ltinyxml -lboost_system
+ SOURCES = Arrows.cpp BackgroundSceneManager.cpp Board.cpp Brick.cpp Cam.cpp ColoredTextAreaOverlayElement.cpp ConfigManager.cpp \
+ CreditsState.cpp DotScene.cpp EditableText.cpp EntityMaterialInstance.cpp Fader.cpp GameManager.cpp \
+ GameState.cpp HighScoreManager.cpp HighScoreState.cpp HighScoreTable.cpp InputManager.cpp IntroState.cpp \
+ LevelLoader.cpp Main.cpp MaterialInstance.cpp MenuButton.cpp MenuState.cpp MovableText.cpp Music.cpp \
+ PauseState.cpp Player.cpp PlayerModelSelector.cpp PlayState.cpp RingSwitcher.cpp RingSwitcherObject.cpp \
+Index: b/include/Arrows.h
+===================================================================
+--- a/include/Arrows.h
++++ b/include/Arrows.h
+@@ -1,10 +1,12 @@
+ #ifndef Arrows_H
+ #define Arrows_H
+ 
+ 
+ #include <Ogre.h>
++#include <OgreOverlay.h>
++#include <OgreOverlayManager.h>
+ #include <OgrePanelOverlayElement.h>
+ 
+ 
+ class Arrows
+ {
+Index: b/include/Fader.h
+===================================================================
+--- a/include/Fader.h
++++ b/include/Fader.h
+@@ -1,10 +1,12 @@
+ #ifndef Fader_H
+ #define Fader_H
+ 
+ #include <Ogre.h>
+ #include <OgreSingleton.h>
++#include <OgreOverlay.h>
++#include <OgreOverlayManager.h>
+ #include <OgrePanelOverlayElement.h>
+ 
+ #include "GameState.h"
+ 
+ #define FADE_NONE   0
+Index: b/include/HighScoreTable.h
+===================================================================
+--- a/include/HighScoreTable.h
++++ b/include/HighScoreTable.h
+@@ -1,9 +1,11 @@
+ #ifndef HighScoreTable_H
+ #define HighScoreTable_H
+ 
+ #include <Ogre.h>
++#include <OgreOverlay.h>
++#include <OgreOverlayManager.h>
+ #include <OgrePanelOverlayElement.h>
+ #include <OgreTextAreaOverlayElement.h>
+ 
+ class HighScoreTable
+ {
+Index: b/include/Tools.h
+===================================================================
+--- a/include/Tools.h
++++ b/include/Tools.h
+@@ -1,10 +1,11 @@
+ 
+ #ifndef Tools_H
+ #define Tools_H
+ 
+ #include <Ogre.h>
++#include <OgreUTFString.h>
+ 
+ 
+ 
+ 
+ //Devuelve el arbol de nodos de la scena
+Index: b/include/MenuButton.h
+===================================================================
+--- a/include/MenuButton.h
++++ b/include/MenuButton.h
+@@ -1,9 +1,11 @@
+ #ifndef MenuButton_H
+ #define MenuButton_H
+ 
+ #include <Ogre.h>
++#include <OgreOverlay.h>
++#include <OgreOverlayManager.h>
+ #include <OgrePanelOverlayElement.h>
+ #include <OgreTextAreaOverlayElement.h>
+ 
+ #define BSTATE_INACTIVE     0
+ #define BSTATE_ACTIVE       1
+Index: b/include/MovableText.h
+===================================================================
+--- a/include/MovableText.h
++++ b/include/MovableText.h
+@@ -9,10 +9,11 @@
+ 
+ #ifndef MovableText_H
+ #define MovableText_H
+ 
+ #include <Ogre.h>
++#include <OgreUTFString.h>
+ #include <OgreFontManager.h>
+ 
+ //using namespace Ogre;
+ 
+ 
