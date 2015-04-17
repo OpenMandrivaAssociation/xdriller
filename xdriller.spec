@@ -30,6 +30,7 @@ BuildRequires:  pkgconfig(OGRE)
 BuildRequires:  pkgconfig(OGRE-Overlay)
 BuildRequires:  pkgconfig(ogg)
 BuildRequires:  libtinyxml-devel
+BuildRequires:	boost-devel
 Summary:        Drill through Tetris-like screens of blocks
 License:        GPL-3.0
 Group:          Games/Arcade
