@@ -116,3 +116,46 @@ Index: b/include/MovableText.h
  //using namespace Ogre;
  
  
+--- xdriller-0.8.0/src/GameManager.cpp.orig	2015-04-18 22:17:46.933091290 +0100
++++ xdriller-0.8.0/src/GameManager.cpp	2015-04-18 22:59:15.006907986 +0100
+@@ -1,6 +1,7 @@
+ #include "GameManager.h"
+ #include "OgreWindowEventUtilities.h"
+ #include "OgreException.h"
++#include "OgreOverlaySystem.h"
+ 
+ #include "PlayState.h"
+ #include "GameState.h"
+@@ -260,10 +261,6 @@
+     mCreditsState  = CreditsState::getSingletonPtr();
+     mHighScoreState  = HighScoreState::getSingletonPtr();
+ 
+-    // Register the colored text overlay element
+-    mColoredTextAreaOverlayElementFactory = new ColoredTextAreaOverlayElementFactory();
+-    OverlayManager::getSingleton().addOverlayElementFactory(mColoredTextAreaOverlayElementFactory);
+-
+     // Setup and configure game
+     this->setupResources();
+     if( !this->configureGame() ) {
+@@ -400,12 +397,17 @@
+     // Initialise and create a default rendering window
+     mRenderWindow = mRoot->initialise( true, "Xdriller v" + String(XDRILLER_VERSION_STRING) );
+ 
+-    // Initialise resources
+-    ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
+-
+     // Create needed scenemanagers
+-    mRoot->createSceneManager( ST_GENERIC, "ST_GENERIC" );
++    Ogre::SceneManager* sm = mRoot->createSceneManager( ST_GENERIC, "ST_GENERIC" );
++    Ogre::OverlaySystem* os = OGRE_NEW Ogre::OverlaySystem();
++    sm->addRenderQueueListener(os);
+ 
++    // Register the colored text overlay element
++    mColoredTextAreaOverlayElementFactory = new ColoredTextAreaOverlayElementFactory();
++    OverlayManager::getSingleton().addOverlayElementFactory(mColoredTextAreaOverlayElementFactory);
++
++    // Initialise resources
++    ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
+ 
+     return true;
+ }
