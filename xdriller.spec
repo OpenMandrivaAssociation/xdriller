@@ -35,7 +35,7 @@ Summary:        Drill through Tetris-like screens of blocks
 License:        GPL-3.0
 Group:          Games/Arcade
 Version:        0.8.0
-Release:        3
+Release:        4
 # Downloaded from SourceForge
 Source:         %{name}-%{version}.tar.bz2
 # Wrapper that copies the default config files to the user's
