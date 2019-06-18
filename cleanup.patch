@@ -1,0 +1,259 @@
+diff -ur xdriller-0.8.0/include/CreditsState.h xdriller-0.8.0.new/include/CreditsState.h
+--- xdriller-0.8.0/include/CreditsState.h	2010-02-17 16:14:34.000000000 +0000
++++ xdriller-0.8.0.new/include/CreditsState.h	2019-06-18 11:41:06.041251003 +0100
+@@ -11,7 +11,7 @@
+ class CreditsState : public GameState
+ {
+     public:
+-        ~CreditsState( void );
++        virtual ~CreditsState( void ) {};
+ 
+         void enter( void );
+         void exit( void );
+diff -ur xdriller-0.8.0/include/GameState.h xdriller-0.8.0.new/include/GameState.h
+--- xdriller-0.8.0/include/GameState.h	2010-02-17 16:14:34.000000000 +0000
++++ xdriller-0.8.0.new/include/GameState.h	2019-06-18 11:30:26.552291897 +0100
+@@ -23,7 +23,7 @@
+ 
+ class GameState {
+ public:
+-    ~GameState( void ) { }
++    virtual ~GameState( void ) { }
+ 
+     virtual void enter( void )  = 0;
+     virtual void exit( void )   = 0;
+diff -ur xdriller-0.8.0/include/HighScoreState.h xdriller-0.8.0.new/include/HighScoreState.h
+--- xdriller-0.8.0/include/HighScoreState.h	2010-02-17 16:14:34.000000000 +0000
++++ xdriller-0.8.0.new/include/HighScoreState.h	2019-06-18 11:41:19.769250125 +0100
+@@ -11,7 +11,7 @@
+ class HighScoreState : public GameState
+ {
+     public:
+-        ~HighScoreState( void );
++        virtual ~HighScoreState( void ) {};
+ 
+         void enter( void );
+         void exit( void );
+diff -ur xdriller-0.8.0/include/IntroState.h xdriller-0.8.0.new/include/IntroState.h
+--- xdriller-0.8.0/include/IntroState.h	2010-02-17 16:14:34.000000000 +0000
++++ xdriller-0.8.0.new/include/IntroState.h	2019-06-18 11:41:26.881249670 +0100
+@@ -10,7 +10,7 @@
+ 
+ class IntroState : public GameState{
+ public:
+-    ~IntroState( void );
++    virtual ~IntroState( void ) {};
+ 
+     void enter( void );
+     void exit( void );
+diff -ur xdriller-0.8.0/include/MenuState.h xdriller-0.8.0.new/include/MenuState.h
+--- xdriller-0.8.0/include/MenuState.h	2010-02-17 16:14:34.000000000 +0000
++++ xdriller-0.8.0.new/include/MenuState.h	2019-06-18 11:41:35.145249142 +0100
+@@ -20,7 +20,7 @@
+ 
+ class MenuState : public GameState {
+ public:
+-    ~MenuState( void );
++    virtual ~MenuState( void ) {};
+ 
+     void enter( void );
+     void exit( void );
+diff -ur xdriller-0.8.0/include/PlayState.h xdriller-0.8.0.new/include/PlayState.h
+--- xdriller-0.8.0/include/PlayState.h	2010-02-17 16:14:34.000000000 +0000
++++ xdriller-0.8.0.new/include/PlayState.h	2019-06-18 11:42:19.177246326 +0100
+@@ -23,7 +23,7 @@
+ class PlayState : public GameState {
+ public:
+ 
+-    ~PlayState( void );
++    virtual ~PlayState( void ) {};
+ 
+     void enter( void );
+     void exit( void );
+diff -ur xdriller-0.8.0/include/SubEntityMaterialInstance.h xdriller-0.8.0.new/include/SubEntityMaterialInstance.h
+--- xdriller-0.8.0/include/SubEntityMaterialInstance.h	2010-02-17 16:14:34.000000000 +0000
++++ xdriller-0.8.0.new/include/SubEntityMaterialInstance.h	2019-06-18 11:27:55.056301584 +0100
+@@ -26,7 +26,7 @@
+     /** Destructor.
+      * @note Destroys the copy material if needed.
+      */
+-    ~SubEntityMaterialInstance ();
++    virtual ~SubEntityMaterialInstance ();
+     /** Changes this SubEntity material and does any needed operations to keep the previous
+      * material instance parameters (transparency and such).
+      * @param name Name of the new material.
+diff -ur xdriller-0.8.0/locale/ca/LC_MESSAGES/xdriller.po xdriller-0.8.0.new/locale/ca/LC_MESSAGES/xdriller.po
+--- xdriller-0.8.0/locale/ca/LC_MESSAGES/xdriller.po	2010-02-17 18:34:03.000000000 +0000
++++ xdriller-0.8.0.new/locale/ca/LC_MESSAGES/xdriller.po	2019-06-18 11:34:01.785278133 +0100
+@@ -11,6 +11,7 @@
+ "PO-Revision-Date: 2010-02-17 19:22+0100\n"
+ "Last-Translator: Marvin Stöckl <durmieu@users.sourceforge.net>\n"
+ "Language-Team: Fixi Studios\n"
++"Language: ca\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+diff -ur xdriller-0.8.0/locale/de/LC_MESSAGES/xdriller.po xdriller-0.8.0.new/locale/de/LC_MESSAGES/xdriller.po
+--- xdriller-0.8.0/locale/de/LC_MESSAGES/xdriller.po	2010-02-17 18:34:03.000000000 +0000
++++ xdriller-0.8.0.new/locale/de/LC_MESSAGES/xdriller.po	2019-06-18 11:34:41.041275623 +0100
+@@ -11,6 +11,7 @@
+ "PO-Revision-Date: 2010-02-17 19:24+0100\n"
+ "Last-Translator: Marvin Stöckl <durmieu@users.sourceforge.net>\n"
+ "Language-Team: Fixi Studios\n"
++"Language: de\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+diff -ur xdriller-0.8.0/locale/es/LC_MESSAGES/xdriller.po xdriller-0.8.0.new/locale/es/LC_MESSAGES/xdriller.po
+--- xdriller-0.8.0/locale/es/LC_MESSAGES/xdriller.po	2010-02-17 18:34:03.000000000 +0000
++++ xdriller-0.8.0.new/locale/es/LC_MESSAGES/xdriller.po	2019-06-18 11:32:34.473283716 +0100
+@@ -11,6 +11,7 @@
+ "PO-Revision-Date: 2010-02-17 19:22+0100\n"
+ "Last-Translator: Marvin Stöckl <durmieu@users.sourceforge.net>\n"
+ "Language-Team: Fixi Studios\n"
++"Language: es_ES\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+diff -ur xdriller-0.8.0/locale/eu/LC_MESSAGES/xdriller.po xdriller-0.8.0.new/locale/eu/LC_MESSAGES/xdriller.po
+--- xdriller-0.8.0/locale/eu/LC_MESSAGES/xdriller.po	2010-02-17 18:34:03.000000000 +0000
++++ xdriller-0.8.0.new/locale/eu/LC_MESSAGES/xdriller.po	2019-06-18 11:34:20.441276940 +0100
+@@ -11,6 +11,7 @@
+ "PO-Revision-Date: 2010-02-17 19:23+0100\n"
+ "Last-Translator: Marvin Stöckl <durmieu@users.sourceforge.net>\n"
+ "Language-Team: Fixi Studios\n"
++"Language: eu\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+diff -ur xdriller-0.8.0/locale/fr/LC_MESSAGES/xdriller.po xdriller-0.8.0.new/locale/fr/LC_MESSAGES/xdriller.po
+--- xdriller-0.8.0/locale/fr/LC_MESSAGES/xdriller.po	2010-02-17 18:34:03.000000000 +0000
++++ xdriller-0.8.0.new/locale/fr/LC_MESSAGES/xdriller.po	2019-06-18 11:35:04.689274111 +0100
+@@ -11,6 +11,7 @@
+ "PO-Revision-Date: 2010-02-17 19:33+0100\n"
+ "Last-Translator: Marvin Stöckl <durmieu@users.sourceforge.net>\n"
+ "Language-Team: Fixi Studios\n"
++"Language: fr\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+diff -ur xdriller-0.8.0/locale/it/LC_MESSAGES/xdriller.po xdriller-0.8.0.new/locale/it/LC_MESSAGES/xdriller.po
+--- xdriller-0.8.0/locale/it/LC_MESSAGES/xdriller.po	2010-02-17 16:14:34.000000000 +0000
++++ xdriller-0.8.0.new/locale/it/LC_MESSAGES/xdriller.po	2019-06-18 11:32:17.289284815 +0100
+@@ -10,6 +10,7 @@
+ "POT-Creation-Date: 2009-10-31 22:43+0100\n"
+ "PO-Revision-Date: 2009-11-01 13:33+0100\n"
+ "Last-Translator: Marvin Stöckl <durmieu@users.sourceforge.net>\n"
++"Language: it_IT\n"
+ "Language-Team: Fixi Studios\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+diff -ur xdriller-0.8.0/src/Board.cpp xdriller-0.8.0.new/src/Board.cpp
+--- xdriller-0.8.0/src/Board.cpp	2010-02-17 16:14:34.000000000 +0000
++++ xdriller-0.8.0.new/src/Board.cpp	2019-06-18 11:26:44.536306094 +0100
+@@ -588,10 +588,14 @@
+     int j2 = j1+4;
+     int i2 = i1+4;
+ 
+-    if(j1 < 0) j1 = 0; if(j1 > height-1) j1 = height -1;
+-    if(j2 < 0) j2 = 0; if(j2 > height-1) j2 = height -1;
+-    if(i1 < 0) i1 = 0; if(i1 > width-1)  i1 = width -1;
+-    if(i2 < 0) i2 = 0; if(i2 > width-1)  i2 = width -1;
++    if(j1 < 0) j1 = 0; 
++    if(j1 > height-1) j1 = height -1;
++    if(j2 < 0) j2 = 0; 
++    if(j2 > height-1) j2 = height -1;
++    if(i1 < 0) i1 = 0; 
++    if(i1 > width-1)  i1 = width -1;
++    if(i2 < 0) i2 = 0; 
++    if(i2 > width-1)  i2 = width -1;
+ 
+ 
+ 
+diff -ur xdriller-0.8.0/src/DotScene.cpp xdriller-0.8.0.new/src/DotScene.cpp
+--- xdriller-0.8.0/src/DotScene.cpp	2010-02-17 16:14:35.000000000 +0000
++++ xdriller-0.8.0.new/src/DotScene.cpp	2019-06-18 11:27:33.464302965 +0100
+@@ -328,7 +328,6 @@
+ 
+ 			while( XMLBillboard )
+ 			{
+-				Billboard *b;
+ 				// TempValue;
+ 				TempVec = Vector3( 0, 0, 0 );
+ 				ColourValue TempColour(1,1,1,1);
+@@ -353,7 +352,7 @@
+ 					TempColour.b = StringConverter::parseReal(TempValue);
+ 				}
+ 
+-				b = bSet->createBillboard( TempVec, TempColour);
++				bSet->createBillboard( TempVec, TempColour);
+ 
+ 				XMLBillboard = XMLBillboard->NextSiblingElement( "billboard" );
+ 			}
+diff -ur xdriller-0.8.0/src/HighScoreManager.cpp xdriller-0.8.0.new/src/HighScoreManager.cpp
+--- xdriller-0.8.0/src/HighScoreManager.cpp	2010-11-17 08:11:52.000000000 +0000
++++ xdriller-0.8.0.new/src/HighScoreManager.cpp	2019-06-18 11:36:47.359267545 +0100
+@@ -88,17 +88,6 @@
+         if(strcmp(mode_name,"Infinite") == 0) scores = infiniteScores;
+         if(strcmp(mode_name,"Time Attack") == 0) scores = timeAttackScores;
+ 
+-        int num_levels = 0;
+-
+-        if(strcmp(mode_name,"Infinite") == 0)
+-        {
+-            num_levels = 3;
+-        }
+-        else
+-        {
+-            num_levels = LevelLoader::getSingleton().getNumLevels();
+-        }
+-
+         TiXmlElement* level = TiXmlHandle(mode).FirstChild("level").Element();
+ 
+         for( ; level; level=level->NextSiblingElement())
+@@ -365,14 +354,12 @@
+     {
+         bool _isHighScore = false;
+ 
+-        int highest_time = scores[score_index].time;
+         int highest_time_index = score_index;
+ 
+         for(int i = 0; i<10; i++)
+         {
+             if(scores[score_index+i].name == "")
+             {
+-                highest_time = scores[score_index+i].time;
+                 highest_time_index = score_index+i;
+ 
+                 _isHighScore = true;
+@@ -383,7 +370,6 @@
+             {
+                 _isHighScore = true;
+ 
+-                highest_time = scores[score_index+i].time;
+                 highest_time_index = score_index+i;
+ 
+ 
+@@ -408,14 +394,12 @@
+     {
+         bool _isHighScore = false;
+ 
+-        int lowest_depth = scores[score_index].depth;
+         int lowest_depth_index = score_index;
+ 
+         for(int i = 0; i<10; i++)
+         {
+             if(scores[score_index+i].name == "")
+             {
+-                lowest_depth = scores[score_index+i].depth;
+                 lowest_depth_index = score_index+i;
+ 
+                 _isHighScore = true;
+@@ -426,7 +410,6 @@
+             {
+                 _isHighScore = true;
+ 
+-                lowest_depth = scores[score_index+i].depth;
+                 lowest_depth_index = score_index+i;
+ 
+             }

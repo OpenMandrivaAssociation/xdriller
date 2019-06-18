@@ -21,21 +21,12 @@
 
 
 Name:           xdriller
-BuildRequires:  pkgconfig(sdl)
-BuildRequires:  SDL_mixer-devel
-BuildRequires:  gcc-c++
-BuildRequires:  gettext
-BuildRequires:  pkgconfig(OIS)
-BuildRequires:  pkgconfig(OGRE)
-BuildRequires:  pkgconfig(OGRE-Overlay)
-BuildRequires:  pkgconfig(ogg)
-BuildRequires:  libtinyxml-devel
-BuildRequires:	boost-devel
 Summary:        Drill through Tetris-like screens of blocks
 License:        GPL-3.0
 Group:          Games/Arcade
+Url:            http://xdriller.sourceforge.net/
 Version:        0.8.0
-Release:        5
+Release:        6
 # Downloaded from SourceForge
 Source:         %{name}-%{version}.tar.bz2
 # Wrapper that copies the default config files to the user's
@@ -45,8 +36,18 @@ Patch0:         %{name}-tinyxml.patch
 Patch1:         ogre-1.8_fix.patch
 # PATCH-FIX-OPENSUSE ogre-1.9_fix.patch -- fix build with ogre-1.9 -- seife+obs@b1-systems.com
 Patch2:         ogre-1.9_fix.patch
-Url:            http://xdriller.sourceforge.net/
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+# cb - fix for various warnings
+Patch3:		cleanup.patch
+BuildRequires:  pkgconfig(sdl)
+BuildRequires:  pkgconfig(SDL_mixer)
+BuildRequires:  gcc-c++
+BuildRequires:  gettext
+BuildRequires:  pkgconfig(OIS)
+BuildRequires:  pkgconfig(OGRE)
+BuildRequires:  pkgconfig(OGRE-Overlay)
+BuildRequires:  pkgconfig(ogg)
+BuildRequires:  tinyxml-devel
+BuildRequires:  boost-devel
 
 %description
 Xdriller is a portable Puzzle/Arcade video game. Xdriller is based 
@@ -79,9 +80,7 @@ Features:
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%apply_patches
 
 sed -i 's|OIS/OIS|ois/OIS|' include/*.h
 
