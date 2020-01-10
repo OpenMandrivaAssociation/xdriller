@@ -80,7 +80,7 @@ Features:
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 sed -i 's|OIS/OIS|ois/OIS|' include/*.h
 
