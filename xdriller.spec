@@ -24,7 +24,7 @@ Name:           xdriller
 Summary:        Drill through Tetris-like screens of blocks
 License:        GPL-3.0
 Group:          Games/Arcade
-Url:            http://xdriller.sourceforge.net/
+Url:            https://xdriller.sourceforge.net/
 Version:        0.8.0
 Release:        6
 # Downloaded from SourceForge
