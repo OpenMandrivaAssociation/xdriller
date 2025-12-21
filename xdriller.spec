@@ -38,6 +38,7 @@ Patch1:         ogre-1.8_fix.patch
 Patch2:         ogre-1.9_fix.patch
 # cb - fix for various warnings
 Patch3:		cleanup.patch
+BuildRequires:	make
 BuildRequires:  pkgconfig(sdl)
 BuildRequires:  pkgconfig(SDL_mixer)
 BuildRequires:  gcc-c++
